@@ -35,6 +35,11 @@
         <h3>Building Image from docker file: </h3>
         <li>docker build -t tag-name</li>
     </ol>
+    <ol>
+        <h3>Fabric 8 Plugin</h3>
+        <li>mvn clean package docker:build</li>
+        <li>mvn clean package docker:build docker:push</li>
+    </ol>
 </ol>
 
 <h5>
