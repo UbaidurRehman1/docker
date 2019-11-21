@@ -40,6 +40,11 @@
         <li>mvn clean package docker:build</li>
         <li>mvn clean package docker:build docker:push</li>
     </ol>
+    <ol>
+        <h3>Storing docker id and password in maven settings</h3>
+        <li>right click on the blank screen and hit create maven settings or edit settings</li>
+        <li>now add servers->server->id, username, password</li>
+    </ol>
 </ol>
 
 <h5>
