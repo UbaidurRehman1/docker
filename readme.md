@@ -46,6 +46,11 @@
         <li>now add servers->server->id, username, password</li>
     </ol>
     <ol>
+        <h3>CentOS and Ubuntu to run</h3>
+        <li>docker run -d `ubuntu or centos` tail -f /dev/null</li>
+        <li>ps -ef ~used to list the commands</li>
+    </ol>
+    <ol>
         <h3>Ubuntu Stuff</h3>
         <li>docker create -v /tmp --name datacontainer ubuntu (create volume container)</li>
         <li>docker run -t -i --volumes-from datacontainer ubuntu /bin/bash</li>
