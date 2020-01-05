@@ -21,6 +21,11 @@
         <li>Delete untagged images: docker rmi $(docker images -q -f dangling=true)</li>
         <li>Delete all images: docker rmi $(docker images -q)</li>
         <li>docker volume rm $(docker volume ls -f dangling=true -q)</li>
+        <ol>
+            <h5>Compact vhdx in windows</h5>
+            <li>cd C:\Users\UbaidurRehman\AppData\Local\Docker\wsl\data</li>
+            <li>Optimize-VHD .\ext4.vhdx -Mode Full</li>
+        </ol>
     </ol>
     <ol>
         <h3>Logs</h3>
