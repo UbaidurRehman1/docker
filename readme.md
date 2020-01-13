@@ -13,6 +13,7 @@
     <ol>
         <li>add -v and /to/path/:data/db</li>
     </ol>
+    <li>To commit the container: <strong>docker commit container repository:tag</strong></li>
     <ol>
         <h3>House Keeping</h3>
         <li>Kill all running containers: docker kill $(docker ps -q)</li>
