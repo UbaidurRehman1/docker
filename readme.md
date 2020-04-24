@@ -16,7 +16,7 @@
     - creating network between docker-compose and external client 
         - **docker network create networkName**
         - **docker network connect --alias db networkName containerName**
-    - Add this inside docker-compose
+    - Add this inside docker-compose networks
         - ```
               dbnet:
                   external: 
