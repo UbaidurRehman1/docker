@@ -17,11 +17,11 @@
         - **docker network create networkName**
         - **docker network connect --alias db networkName containerName**
     - Add this inside docker-compose
-    - ```
-          dbnet:
-              external: 
-                  name: networkName
-      ```
+        - ```
+              dbnet:
+                  external: 
+                      name: networkName
+          ```
 3. #### House Keeping
     - Kill all running containers: **docker kill $(docker ps -q)**
     - Delete all stopped containers: **docker rm $(docker ps -a -q)**
