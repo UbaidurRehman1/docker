@@ -1,71 +1,58 @@
-<h2>Docker</h2>
+## Docker
 
-<ol>
-    <h3>Docker Important commands</h3>
-    <li>for all docker containers <strong>docker ps -a</strong></li>
-    <li>for all running docker containers <strong>docker ps</strong></li>
-    <li>to run docker container <strong>docker run image_name</strong></li>
-    <li>to run docker container in deamon <strong>docker run -d image_name</strong></li>
-    <li>to map port use <strong>docker -p port:port</strong></li>
-    <li>to check logs <strong>docker logs -f container_id</strong></li>
-    <li>to add environment: use -e var:var-name</li>
-    <li>To include volume: (mongo db)</li>
-    <ol>
-        <li>add -v and /to/path/:data/db</li>
-    </ol>
-    <li>To commit the container: <strong>docker commit container repository:tag</strong></li>
-    <ol>
-        <h3>House Keeping</h3>
-        <li>Kill all running containers: docker kill $(docker ps -q)</li>
-        <li>Delete all stopped containers: docker rm $(docker ps -a -q)</li>
-        <li>Remove a docker image: docker rmi image-name</li>
-        <li>Delete untagged images: docker rmi $(docker images -q -f dangling=true)</li>
-        <li>Delete all images: docker rmi $(docker images -q)</li>
-        <li>docker volume rm $(docker volume ls -f dangling=true -q)</li>
-        <ol>
-            <h5>Compact vhdx in windows</h5>
-            <li>cd C:\Users\UbaidurRehman\AppData\Local\Docker\wsl\data</li>
-            <li>Optimize-VHD .\ext4.vhdx -Mode Full</li>
-        </ol>
-    </ol>
-    <ol>
-        <h3>Logs</h3>
-        <li>Check the logs of container: docker logs container_name</li>
-        <li>Tail the logs of container: docker logs -f container_name</li>
-    </ol>
-    <ol>
-        <h3>Execute the shell of the container:</h3>
-        <li>docker exec -it container-name bash</li>
-    </ol>
-    <ol>
-        <h3>Building Image from docker file: </h3>
-        <li>docker build -t tag-name</li>
-    </ol>
-    <ol>
-        <h3>Fabric 8 Plugin</h3>
-        <li>mvn clean package docker:build</li>
-        <li>mvn clean package docker:build docker:push</li>
-    </ol>
-    <ol>
-        <h3>Storing docker id and password in maven settings</h3>
-        <li>right click on the blank screen and hit create maven settings or edit settings</li>
-        <li>now add servers->server->id, username, password</li>
-    </ol>
-    <ol>
-        <h3>CentOS and Ubuntu to run</h3>
-        <li>docker run -d `ubuntu or centos` tail -f /dev/null</li>
-        <li>ps -ef ~used to list the commands</li>
-    </ol>
-    <ol>
-        <h3>Ubuntu Stuff</h3>
-        <li>docker create -v /tmp --name datacontainer ubuntu (create volume container)</li>
-        <li>docker run -t -i --volumes-from datacontainer ubuntu /bin/bash</li>
-    </ol>
+1. #### Docker Important commands
+    - for all docker containers **docker ps -a**
+    - for all running docker containers **docker ps**
+    - to run docker container **docker run image_name**
+    - to run docker container in daemon **docker run -d image_name**
+    - to map port use **docker -p port:port**
+    - to check logs **docker logs -f container_id**
+    - to add environment: use -e var:var-name
+    - To include volume: (mongo db)
+        - add -v and /to/path/:data/db
+    - To commit the container: **docker commit container repository:tag**
+      
+2. #### Networking
+    - creating network between docker-compose and external client 
+        - **docker network create networkName**
+        - **docker network connect --alias db networkName containerName**
+3. #### House Keeping
+    - Kill all running containers: **docker kill $(docker ps -q)**
+    - Delete all stopped containers: **docker rm $(docker ps -a -q)**
+    - Remove a docker image: **docker rmi image-name**
+    - Delete untagged images: **docker rmi $(docker images -q -f dangling=true)**
+    - Delete all images: **docker rmi $(docker images -q)**
+    - **docker volume rm $(docker volume ls -f dangling=true -q)**
+    
+4. #### Compact vhdx in windows
+    - cd C:\Users\UbaidurRehman\AppData\Local\Docker\wsl\data
+    - Optimize-VHD .\ext4.vhdx -Mode Full
 
-</ol>
+5.  #### Logs
+    - Check the logs of container: docker logs container_name
+    - Tail the logs of container: docker logs -f container_name
 
-<h5>
-    <ol>
-        <li>Use relative path in windows</li>
-    </ol>
-</h5>
+6. #### Execute the shell of the container
+    - docker exec -it container-name bash
+
+7. #### Building Image from docker file:
+    - docker build -t tag-name
+
+8. #### Fabric 8 Plugin
+    - mvn clean package docker:build
+    - mvn clean package docker:build docker:push
+
+9. #### Storing docker id and password in maven settings
+    - right click on the blank screen and hit create maven settings or edit settings
+    - now add servers->server->id, username, password
+    
+10. #### CentOS and Ubuntu to run
+    - docker run -d `ubuntu or centos` tail -f /dev/null
+    - ps -ef ~used to list the commands
+
+11. #### Ubuntu Stuff
+    - docker create -v /tmp --name datacontainer ubuntu (create volume container)
+    - docker run -t -i --volumes-from datacontainer ubuntu /bin/bash
+
+12. #### Notes
+    - Use relative path in windows
