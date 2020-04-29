@@ -1,4 +1,29 @@
-## Docker
+# Docker 2020
+
+1. ### Docker commands
+    - Docker version
+    - Docker info
+
+2. ## Container
+    - docker container run --publish 80:80 nginx
+    - docker container run --publish 80:80 --detach nginx
+    - docker container ls
+    - docker container stop <container-name>
+    - docker container ls -a
+    - docker container logs <container-name>
+    - docker container top <container-name>
+    - docker container rm ...<container-id-first-3-digit>
+
+
+
+3. ## Docker Debugging with Intellij Idea
+    - Better Convention
+    - Make a docker file of the micro-service, remove entry point
+    - now make a docker service of this docker file using Intellij Idea configuration 
+    - then make a remote service and add this docker file inside this, add module of this service (root folder of our module)
+    - and add a custom command inside the pop up (java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -Djava.security.egd=file:/dev/./urandom -jar service.jar)
+
+# Docker 2019
 
 1. #### Docker Important commands
     - for all docker containers **docker ps -a**
