@@ -17,11 +17,27 @@
 
 
 3. ## Docker Debugging with Intellij Idea
-    - Better Convention
-    - Make a docker file of the micro-service, remove entry point
-    - now make a docker service of this docker file using Intellij Idea configuration 
-    - then make a remote service and add this docker file inside this, add module of this service (root folder of our module)
-    - and add a custom command inside the pop up (java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -Djava.security.egd=file:/dev/./urandom -jar service.jar)
+    - Create a Docker file and its Running Configuration (Just add Binding in its configuration)
+        - Docker File
+            ```
+                FROM openjdk:latest
+                LABEL maintainer="urehman.bese16seecs@seecs.edu.pk"
+                VOLUME /tmp
+                EXPOSE 9090
+                ARG JAR_FILE=target/helloWorld-0.0.1-SNAPSHOT.jar
+                ADD ${JAR_FILE} service.jar
+                #ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "service.jar"]
+                ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005", "-Djava.security.egd=file:/dev/./urandom", "-jar", "service.jar"]
+            ```
+        - Docker Running Config (only binding)
+            ![](img/docker-config.png)
+    - Remote Running Config
+        - Add Module which you want to debug
+        - Add Lunch Docker before debug
+         ![](img/remote-config.png)
+    - Remote Java Debugger Config
+        - Just add binding (5005) both for host and container 
+         ![](img/remote-docker-config.png)
 
 # Docker 2019
 
